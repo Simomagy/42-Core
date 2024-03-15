@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 02:54:36 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/06 03:07:56 by smagenes         ###   ########.fr       */
+/*   Created: 2024/03/08 23:45:39 by smagenes          #+#    #+#             */
+/*   Updated: 2024/03/08 23:48:13 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
+	void	*ptr;
 
-	i = 0;
-	if (size > 0)
-	{
-		while (src[i] && i < (size -1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = 0;
-	}
-	while (src[i])
-		i++;
-	return (i);
+	ptr = (void *)malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count);
+	return (ptr);
 }

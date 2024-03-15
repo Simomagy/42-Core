@@ -6,7 +6,7 @@
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 05:10:19 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/06 05:14:26 by smagenes         ###   ########.fr       */
+/*   Updated: 2024/03/08 23:39:34 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (i < n)
 		return (cmp_char(s1[i], s2[i]));
 	return (0);
-
 }
