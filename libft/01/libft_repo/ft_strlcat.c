@@ -6,13 +6,13 @@
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 03:50:58 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/06 04:13:29 by smagenes         ###   ########.fr       */
+/*   Updated: 2024/03/25 04:24:21 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	dlen;
 	size_t	slen;

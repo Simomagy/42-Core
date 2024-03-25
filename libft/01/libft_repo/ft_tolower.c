@@ -6,7 +6,7 @@
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 04:01:50 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/06 04:02:57 by smagenes         ###   ########.fr       */
+/*   Updated: 2024/03/25 04:28:31 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	ft_tolower(int in)
 {
-	if (in >= 65 || in <= 90)
+	if (in >= 65 && in <= 90)
 	{
 		return (in + 32);
 	}
+	else
+		return (in);
 }

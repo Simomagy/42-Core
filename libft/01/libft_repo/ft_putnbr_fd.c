@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 05:10:19 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/25 04:25:13 by smagenes         ###   ########.fr       */
+/*   Created: 2024/03/25 04:13:52 by smagenes          #+#    #+#             */
+/*   Updated: 2024/03/25 04:22:53 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	cmp_char(char c1, char c2)
+static int	ft_abs(int nbr)
 {
-	if ((unsigned char)c1 != (unsigned char)c2)
-		return ((unsigned char)c1 - (unsigned char)c2);
-	return (0);
+	if (nbr < 0)
+		return (-nbr);
+	else
+		return (nbr);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	char	str[13];
+	int		is_neg;
+	int		length;
 
-	i = 0;
-	while (s1[i] && s2[i])
+	is_neg = (n < 0);
+	ft_bzero(str, 13);
+	if (n == 0)
+		str[0] = '0';
+	length = 0;
+	while (n != 0)
 	{
-		if (cmp_char(s1[i], s2[i]))
-			return (s1[i] - s2[i]);
-		i++;
+		str[length++] = '0' + ft_abs(n % 10);
+		n = (n / 10);
 	}
-	if (i < n)
-		return (cmp_char(s1[i], s2[i]));
-	return (0);
+	if (is_neg)
+		str[length] = '-';
+	else if (length > 0)
+		length--;
+	while (length >= 0)
+		write(fd, &str[length--], 1);
 }
