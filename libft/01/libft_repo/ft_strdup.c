@@ -6,28 +6,23 @@
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 23:48:26 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/08 23:53:20 by smagenes         ###   ########.fr       */
+/*   Updated: 2024/04/08 09:23:25 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-	char	*str;
-	size_t	i;
+	int		s1_len;
+	char	*dup;
 
-	if (!s1)
+	s1_len = ft_strlen(s1);
+	dup = (char *)malloc((s1_len + 1) * sizeof(char));
+	if (!dup)
 		return (NULL);
-	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = 0;
-	return (str);
+	dup[s1_len] = 0;
+	while (--s1_len >= 0)
+		dup[s1_len] = s1[s1_len];
+	return (dup);
 }

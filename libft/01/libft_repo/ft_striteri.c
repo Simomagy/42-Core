@@ -6,7 +6,7 @@
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 04:05:46 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/25 04:08:22 by smagenes         ###   ########.fr       */
+/*   Updated: 2024/04/08 09:12:57 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int	i;
+	int	i;
 
 	if (!s || !f)
-		return (NULL);
+		return ;
 	i = 0;
 	while (s[i])
 	{
-		f(i, s + i);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }

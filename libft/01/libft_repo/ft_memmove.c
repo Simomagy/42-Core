@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 02:08:48 by smagenes          #+#    #+#             */
-/*   Updated: 2024/04/08 09:22:45 by smagenes         ###   ########.fr       */
+/*   Created: 2024/04/08 09:04:21 by smagenes          #+#    #+#             */
+/*   Updated: 2024/04/08 09:25:04 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	cur;
-	char	*data;
+	char	*data_dst;
+	char	*data_src;
 
-	cur = 0;
-	data = (char *)s;
-	while (cur < n)
+	if (!src && !dst)
+		return (NULL);
+	if (src > dst)
+		dst = ft_memcpy(dst, src, len);
+	else
 	{
-		data[cur] = 0;
-		cur++;
+		data_dst = (char *)dst;
+		data_src = (char *)src;
+		while (len--)
+			data_dst[len] = data_src[len];
 	}
+	return (dst);
 }

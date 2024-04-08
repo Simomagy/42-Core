@@ -6,19 +6,22 @@
 /*   By: smagenes <smagenes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 23:45:39 by smagenes          #+#    #+#             */
-/*   Updated: 2024/03/08 23:48:13 by smagenes         ###   ########.fr       */
+/*   Updated: 2024/04/08 09:27:29 by smagenes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
+	char	*call;
+	size_t	cur;
 
-	ptr = (void *)malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count);
-	return (ptr);
+	call = malloc(count * size);
+	if (!call)
+		return (0);
+	cur = -1;
+	while (++cur < size * count)
+		call[cur] = 0;
+	return (call);
 }
